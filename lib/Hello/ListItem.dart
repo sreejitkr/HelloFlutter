@@ -1,0 +1,4 @@
+
+class ListItem {
+  String name;
+}
