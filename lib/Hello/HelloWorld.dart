@@ -42,7 +42,11 @@ class _HomeScreenState extends  State<HomeScreen> {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Text("Enter Item Name"),
+                  Text(
+                    'Enter Item Name',
+                    style: Theme.of(context).textTheme.display4,
+                    key: ValueKey("labeltext"),
+                  ),
                   Expanded(
                     child:  TextField(
                       onSubmitted: (newValue) {
@@ -87,7 +91,10 @@ class _HomeScreenState extends  State<HomeScreen> {
           },
           color: Colors.blue,
           textColor: Colors.white,
-          child: Text('Add Item'),
+          child: Text(
+              'Add Item',
+              key: ValueKey("textfield"),
+          ),
         ),
       ),
     );
