@@ -1,0 +1,75 @@
+# Config file for Flutter tests on real device pools.
+# Auto-creates projects and device pools if needed.
+# Configures android and ios test runs.
+# Builds app, uploads and runs tests.
+# Then monitors tests, returns final pass/fail result and downloads artifacts.
+# Note: assumes the 'aws' command line utility is logged-in.
+
+# sylph config
+tmp_dir: /tmp/sylph
+artifacts_dir: /tmp/sylph_artifacts
+# local timeout per device farm run
+sylph_timeout: 1500 # seconds approx
+# run on ios and android pools concurrently (for faster results)
+concurrent_runs: true
+
+# device farm config
+project_name: TestFlutter
+default_job_timeout: 25 # minutes, set at project creation
+
+device_pools:
+
+#  - pool_name: Android
+#    pool_type: android
+#    devices:
+#      - name: Samsung Galaxy J7 (2018)
+#        model: SM-J737U
+#        os: 8.0.0
+
+  # - pool_name: Androids
+  #   pool_type: android
+  #   devices:
+  #    - name: Samsung Galaxy J7 (2018)
+  #      model: SM-J737U
+  #      os: 8.0.0
+  #    - name: Sony Xperia XZ3
+  #      model: H8416
+  #      os: 9.0.0
+
+  # - pool_name: Sony
+  #   pool_type: android
+  #   devices:
+  #    - name: Sony Xperia XZ3
+  #      model: H8416
+  #      os: 9.0.0
+
+   - pool_name: Androidnew
+     pool_type: android
+     devices:
+      - name: Samsung Galaxy S10+
+        model: SM-G975U1
+        os: 9.0.0
+  #    - name: Samsung Galaxy Note 10
+  #      model: SM-N970U1
+  #      os: 9.0.0
+
+  # - pool_name: iPhone latest
+  #   pool_type: ios
+  #   devices:
+  #     - name: Apple iPhone 11 Pro Max
+  #       model: MWGY2LL/A
+  #       os: 13.1.3
+
+test_suites:
+
+  - test_suite: Only Android tests
+    main: test_driver/e2e.dart
+    tests:
+      - test_driver/e2e_test.dart
+    pool_names:
+      - Androidnew
+      # - Androids
+      # - Sony
+      # - Android latest
+      # - iPhone latest
+    job_timeout: 25 # minutes, set per job, over-rides default job timeout above

@@ -22,15 +22,18 @@ dependencies:
   dartz: ^0.9.0
   flutter:
     sdk: flutter
-
   cupertino_icons: ^0.1.2
-
+  diff_image: ^0.1.1
+dependency_overrides:
+  image: ^2.1.10
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_driver:
     sdk: flutter
   test: any
+  screenshots: 2.1.1
+  ozzie: 2.2.3
 
 
 # For information on the generic Dart part of this file, see the

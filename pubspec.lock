@@ -99,6 +99,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0"
+  diff_image:
+    dependency: "direct main"
+    description:
+      name: diff_image
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   equatable:
     dependency: "direct main"
     description:
@@ -169,19 +176,19 @@ packages:
     source: hosted
     version: "3.1.4"
   image:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.4"
+    version: "2.1.12"
   intl:
     dependency: transitive
     description:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.16.0"
+    version: "0.16.1"
   io:
     dependency: transitive
     description:
@@ -202,7 +209,7 @@ packages:
       name: json_rpc_2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   logging:
     dependency: transitive
     description:
@@ -259,6 +266,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.8"
+  ozzie:
+    dependency: "direct dev"
+    description:
+      name: ozzie
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.3"
   package_config:
     dependency: transitive
     description:
@@ -315,13 +329,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.12"
+  pub_cache:
+    dependency: transitive
+    description:
+      name: pub_cache
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.3"
   pub_semver:
     dependency: transitive
     description:
       name: pub_semver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.2"
+    version: "1.4.4"
   quiver:
     dependency: transitive
     description:
@@ -329,6 +350,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.5"
+  resource:
+    dependency: transitive
+    description:
+      name: resource
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.6"
+  screenshots:
+    dependency: "direct dev"
+    description:
+      name: screenshots
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   shelf:
     dependency: transitive
     description:
@@ -432,6 +467,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.15"
+  tool_base:
+    dependency: transitive
+    description:
+      name: tool_base
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.9.5+3"
+  tool_mobile:
+    dependency: transitive
+    description:
+      name: tool_mobile
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.9.5+1"
   typed_data:
     dependency: transitive
     description:
