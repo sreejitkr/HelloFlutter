@@ -1,4 +1,3 @@
-
 name: 🧪 Test with coverage 📊
 
 on:
@@ -16,4 +15,4 @@ jobs:
         uses: britannio/action-install-flutter@v1.1
         with:
           # The channel/version of Flutter to be used e.g., beta or 2.0.0
-          version: # optional, default is stable
+          version: 1.0
