@@ -1,18 +1,27 @@
-name: 🧪 Test with coverage 📊
+name: CI
 
 on:
-  workflow_call:
+  push:
+    branches:
+      - master
 
 jobs:
-  coverage:
-    name: 🧪 Test
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
     steps:
-     - name: Flutter SDK
-        # You may pin to the exact commit or the version.
-          # uses: MobileDevOps/flutter-sdk-action@a93694305106b954a8b85195ab7cd4bfec0401bf
-       uses: MobileDevOps/flutter-sdk-action@v1.0.0
-          with:
-            # The Flutter SDK Version
-       flutter-sdk-version: # optional, default is stable
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 12.x
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: 1.17.5
+      - run: flutter pub get
+      - run: flutter format --set-exit-if-changed .
+      - run: flutter analyze .
+      - run: flutter test
+      - run: flutter build apk
+      - uses: actions/upload-artifact@v1
+        with:
+          name: release-apk
+          path: build/app/outputs/apk/release/app-release.apk
