@@ -38,7 +38,7 @@ jobs:
     needs: example_matrix
     strategy:
       matrix:
-        version: [10, 12, 14]
+        version: $FOLDER_LIST
     runs-on: ubuntu-latest
 
     steps:
