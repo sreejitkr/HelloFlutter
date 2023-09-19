@@ -22,12 +22,9 @@ jobs:
           # Print the list for verification
           echo "Folder List:"
           echo "$folder_list"
-
+          echo "::set-output name=folder_list::$FOLDER_LIST"
         shell: bash
         
-      - name: Set Output in Job 1
-        id: job1-output
-        run: echo "::set-output name=folder_list::$FOLDER_LIST"
         
       - name: Use the Environment Variable
         run: |
