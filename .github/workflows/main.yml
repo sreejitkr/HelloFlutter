@@ -7,20 +7,33 @@ on:
 
 jobs:
 
- other_job:
-    strategy:
-      matrix:
-        version: ["blue","yello"]
+ android_build:
     runs-on: ubuntu-latest
-    name: "${{ matrix.version }}"
+    defaults:
+      run:
+        working-directory: ./pfldreams
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Use the Environment Variable
-        run: |
-          # Access the environment variable in subsequent steps
-          echo "/test/${{ matrix.version }}"
-          echo "$FOLDER_LIST"
+        uses: actions/checkout@v3
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.13.0
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build debug Android apk
+        run: flutter build apk --debug
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Android build
+          path: build/app/outputs/flutter-apk/app-debug.apk
 
 
             
