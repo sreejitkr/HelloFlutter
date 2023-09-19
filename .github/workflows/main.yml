@@ -22,7 +22,8 @@ jobs:
           # Print the list for verification
           echo "Folder List:"
           echo "$folder_list"
-          echo "::set-output name=folder_list::$FOLDER_LIST"
+          echo "FOLDER_LIST=yellow,blue" >> "$GITHUB_ENV"
+
         shell: bash
         
         
