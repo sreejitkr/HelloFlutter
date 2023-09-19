@@ -6,9 +6,12 @@ on:
       - master
 
 jobs:
-  build:
+
+ example_matrix:
+    strategy:
+      matrix:
+        version: [10, 12, 14]
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -17,7 +20,7 @@ jobs:
         run: |
           # Use the 'ls' command to list files/folders in the workspace directory
           # You can replace 'workspace' with the specific directory you want to list
-          folder_list=$(ls -1 .)
+          folder_list=$(ls -1 packages)
 
           # Print the list for verification
           echo "Folder List:"
@@ -32,4 +35,7 @@ jobs:
           # Access the environment variable in subsequent steps
           echo "Folder List from Environment Variable:"
           echo "$FOLDER_LIST"
+
+
+            
 
