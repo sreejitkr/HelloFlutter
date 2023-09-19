@@ -23,7 +23,7 @@ jobs:
           echo "Folder List:"
           echo "$folder_list"
 
-          echo "FOLDER_LIST=${folder_list}" >> $GITHUB_ENV
+          echo "FOLDER_LIST=${{folder_list}}" >> $GITHUB_ENV
           
         shell: bash
         
