@@ -10,7 +10,7 @@ jobs:
  other_job:
     strategy:
       matrix:
-        version: [blue,yello]
+        version: ["blue","yello"]
     runs-on: ubuntu-latest
 
     steps:
