@@ -10,8 +10,26 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
-    - name: Set env
-      run: echo "GITHUB_SHA_SHORT=$(ls .)" >> $GITHUB_ENV
-    - name: Test
-      run: echo $GITHUB_SHA_SHORT
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: List Files in Workspace
+        run: |
+          # Use the 'ls' command to list files/folders in the workspace directory
+          # You can replace 'workspace' with the specific directory you want to list
+          folder_list=$(ls -1 workspace)
+
+          # Print the list for verification
+          echo "Folder List:"
+          echo "$folder_list"
+
+          # Set the folder_list as an environment variable
+          echo "FOLDER_LIST=$folder_list" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Use the Environment Variable
+        run: |
+          # Access the environment variable in subsequent steps
+          echo "Folder List from Environment Variable:"
+          echo "$FOLDER_LIST"
+
