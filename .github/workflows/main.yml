@@ -23,8 +23,6 @@ jobs:
           echo "Folder List:"
           echo "$folder_list"
 
-          # Set the folder_list as an environment variable
-          echo "FOLDER_LIST=$folder_list" >> $GITHUB_ENV
         shell: bash
         
       - name: Set Output in Job 1
