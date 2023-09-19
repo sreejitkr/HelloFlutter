@@ -17,7 +17,7 @@ jobs:
         run: |
           # Use the 'ls' command to list files/folders in the workspace directory
           # You can replace 'workspace' with the specific directory you want to list
-          folder_list=$(ls -1 packages)
+          folder_list=$(ls -1 .)
 
           # Print the list for verification
           echo "Folder List:"
