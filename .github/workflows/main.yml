@@ -19,7 +19,7 @@ jobs:
       - name: Use the Environment Variable
         run: |
           # Access the environment variable in subsequent steps
-          echo "/test/${{ matrix.os }}"
+          echo "/test/${{ matrix.version }}"
           echo "$FOLDER_LIST"
 
 
