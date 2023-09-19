@@ -26,7 +26,11 @@ jobs:
           # Set the folder_list as an environment variable
           echo "FOLDER_LIST=$folder_list" >> $GITHUB_ENV
         shell: bash
-
+        
+      - name: Set Output in Job 1
+        id: job1-output
+        run: echo "::set-output name=folder_list::$MY_VARIABLE"
+        
       - name: Use the Environment Variable
         run: |
           # Access the environment variable in subsequent steps
