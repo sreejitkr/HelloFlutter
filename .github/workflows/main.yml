@@ -8,9 +8,6 @@ on:
 jobs:
 
  example_matrix:
-    strategy:
-      matrix:
-        version: [10, 12, 14]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -30,6 +27,23 @@ jobs:
           echo "FOLDER_LIST=$folder_list" >> $GITHUB_ENV
         shell: bash
 
+      - name: Use the Environment Variable
+        run: |
+          # Access the environment variable in subsequent steps
+          echo "Folder List from Environment Variable:"
+          echo "$FOLDER_LIST"
+
+
+ other_job:
+    needs: example_matrix
+    strategy:
+      matrix:
+        version: [10, 12, 14]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Use the Environment Variable
         run: |
           # Access the environment variable in subsequent steps
