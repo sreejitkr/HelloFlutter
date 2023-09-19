@@ -7,38 +7,10 @@ on:
 
 jobs:
 
- example_matrix:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: List Files in Workspace
-        run: |
-          # Use the 'ls' command to list files/folders in the workspace directory
-          # You can replace 'workspace' with the specific directory you want to list
-          folder_list=$(ls -1 lib)
-
-          # Print the list for verification
-          echo "Folder List:"
-          echo "$folder_list"
-          echo "FOLDER_LIST=yellow,blue" >> "$GITHUB_ENV"
-
-        shell: bash
-        
-        
-      - name: Use the Environment Variable
-        run: |
-          # Access the environment variable in subsequent steps
-          echo "Folder List from Environment Variable:"
-          echo "$FOLDER_LIST"
-
-
  other_job:
-    needs: example_matrix
     strategy:
       matrix:
-        version: $FOLDER_LIST
+        version: [blue,yello]
     runs-on: ubuntu-latest
 
     steps:
@@ -47,7 +19,7 @@ jobs:
       - name: Use the Environment Variable
         run: |
           # Access the environment variable in subsequent steps
-          echo "Folder List from Environment Variable:"
+          echo "/test/${{ matrix.os }}"
           echo "$FOLDER_LIST"
 
 
